@@ -17,7 +17,7 @@ class CreateEntityTable extends Migration
             $table->id();
 			$table->string('name');
 			$table->foreignId('city_id');
-			$table->foreignId('user_id');		
+			$table->foreignId('user_id')->nullable();		
             $table->timestamps();
         });
     }

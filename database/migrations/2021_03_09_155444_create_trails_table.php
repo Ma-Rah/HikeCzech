@@ -17,10 +17,10 @@ class CreateTrailsTable extends Migration
             $table->id();
 			$table->foreignId('entity_id');
 			$table->string('name');
-			$table->float('start_pos');
-			$table->float('end_pos');
-			$table->float('difficulty');	
-			$table->float('length');
+			$table->float('start_pos')->nullable();
+			$table->float('end_pos')->nullable();
+			$table->float('difficulty')->nullable();	
+			$table->float('length')->nullable();
             $table->timestamps();
         });
     }

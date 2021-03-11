@@ -17,7 +17,7 @@ class CreatePointsTable extends Migration
             $table->id();
 			$table->foreignId('entity_id');
 			$table->string('name');
-			$table->float('pos');	
+			$table->float('pos')->nullable();	
             $table->timestamps();
         });
     }
