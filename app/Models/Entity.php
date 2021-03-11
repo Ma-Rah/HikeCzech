@@ -15,17 +15,17 @@ class Entity extends Model
 
 	public function city() 
 	{
-		$this->belongsTo(City::class);
+		return	$this->belongsTo(City::class);
 	}
 
 	public function points() 
 	{
-		$this->hasMany(Point::class);
+		return $this->hasMany(Point::class);
 	}
 
 	public function trails() 
 	{
-		$this->hasMany(Trail::class);
+		return	$this->hasMany(Trail::class);
 	}
 }
 

@@ -15,11 +15,11 @@ class City extends Model
 
 	public function region()
 	{
-		$this->belongsTo(Region::class);
+		return $this->belongsTo(Region::class);
 	}
 
 	public function entities()
 	{
-		$this->hasMany(Entity::class);
+		return $this->hasMany(Entity::class);
 	}
 }

@@ -12,6 +12,6 @@ class Country extends Model
     use HasFactory;
 
 	public function regions(){
-		$this->hasMany(Region::class);
+		return $this->hasMany(Region::class);
 	}
 }
