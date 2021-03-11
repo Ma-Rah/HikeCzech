@@ -16,8 +16,7 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
 			$table->foreignId('user_id');
-			$table->foreignId('trail_id');
-			$table->foreignId('point_id');
+			$table->foreignId('entity_id');
 			$table->string('comment');
 			$table->integer('rating');
             $table->timestamps();

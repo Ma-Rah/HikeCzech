@@ -15,14 +15,12 @@ class CreateTrailsTable extends Migration
     {
         Schema::create('trails', function (Blueprint $table) {
             $table->id();
+			$table->foreignId('entity_id');
 			$table->string('name');
-			$table->string('start_coordinates');
-			$table->string('end_coordinates');
-			$table->float('difficulty');
-			$table->integer('ratings');
+			$table->float('start_pos');
+			$table->float('end_pos');
+			$table->float('difficulty');	
 			$table->float('length');
-			$table->foreignId('city_id');
-			$table->foreignId('user_id');
             $table->timestamps();
         });
     }

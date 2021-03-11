@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePointTrailTable extends Migration
+class CreateEntityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePointTrailTable extends Migration
      */
     public function up()
     {
-        Schema::create('point_trail', function (Blueprint $table) {
+        Schema::create('entity', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('point_id');
-			$table->foreignId('trail_id');
+			$table->string('name');
+			$table->foreignId('city_id');
+			$table->foreignId('user_id');		
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreatePointTrailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('point_trail');
+        Schema::dropIfExists('entity');
     }
 }
