@@ -1,0 +1,9 @@
+INSERT INTO `cities` (`id`, `name`, `region_id`, `created_at`, `updated_at`) VALUES ('1', 'Prague', '1', '2021-03-11 15:05:53', '2021-03-11 15:05:53');
+
+INSERT INTO `regions` (`id`, `name`, `country_id`, `created_at`, `updated_at`) VALUES ('1', 'Prague region', '1', '2021-03-11 15:05:53', '2021-03-11 15:05:53');
+
+INSERT INTO `countries` (`id`, `name`, `created_at`, `updated_at`) VALUES ('1', 'Czech republic', '2021-03-11 15:05:53', '2021-03-11 15:05:53');
+
+INSERT INTO `entities` (`id`, `name`, `city_id`, `user_id`, `created_at`, `updated_at`) VALUES ('1', 'Test entity', '1', NULL, '2021-03-11 15:05:53', '2021-03-11 15:05:53');
+
+INSERT INTO `points` (`id`, `entity_id`, `name`, `pos`, `created_at`, `updated_at`) VALUES ('1', '1', 'Test point', NULL, '2021-03-11 15:05:53', '2021-03-11 15:05:53');
