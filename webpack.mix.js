@@ -19,7 +19,7 @@ if (!mix.inProduction()) {
     }).sourceMaps();
 }
 mix.sass("resources/scss/app.scss", "public/css");
-mix.js("resources/js/homepage/index.jsx", "public/js/homepage.js").react();
+// mix.js("resources/js/homepage/index.jsx", "public/js/homepage.js").react();
 // mix.js('resources/js/auth/index.jsx', 'public/js/auth.js').react();
 mix.browserSync({
     host: "localhost",
