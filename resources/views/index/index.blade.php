@@ -1,8 +1,10 @@
+
 @extends('layouts.main')
 
 @section('content')
 
-    <div class=""></div>
+
+<div id="app" class="container"></div>
 
     <script src="{{ mix('js/homepage.js') }}"></script>
 

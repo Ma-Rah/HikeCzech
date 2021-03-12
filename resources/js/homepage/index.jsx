@@ -1,7 +1,8 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
-function index() {
+function Index() {
     return <div>Hello from index</div>;
 }
 
-export default index;
+ReactDOM.render(<Index />, document.getElementById("app"));

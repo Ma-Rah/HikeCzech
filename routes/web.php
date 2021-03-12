@@ -25,3 +25,5 @@ Route::get('/entity/create', 'EntityController@create');
 
 Route::get('/register', "RegisteredUserController@create");
 Route::post('/register', "RegisteredUserController@store");
+
+Route::view('/index', 'index/index');
