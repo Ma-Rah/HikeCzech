@@ -12,7 +12,7 @@ class EntityController extends Controller
     public function show(Request $request, $entity_id) 
 	{
 		
-		$info = Entity::with('city')->findOrFail($entity_id);
+		$info = Entity::with('points')->findOrFail($entity_id);
 
 
 		dd($info);
@@ -20,8 +20,11 @@ class EntityController extends Controller
 		return 'Hello from show entity';
 	}
 
-	public function create(Request $request) 
+	public function create() 
 	{
-		dd($request);
+		$entity = new Entity;
+		$entity->name = "Second entity";
+		$entity->save();
+		return "saved";
 	}
 }

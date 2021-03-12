@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 Route::get('/entity/{entity_id}', 'EntityController@show');
 Route::get('/entity/create', 'EntityController@create');
+
+// Registration form
+
+Route::get('/register', "RegisteredUserController@create");
+Route::post('/register', "RegisteredUserController@store");
