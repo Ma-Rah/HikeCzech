@@ -19,15 +19,14 @@
 <body>
 
     <header>
-Header
+		@yield('navbar')
     </header>
 
     
-
     <main>
-Main
-        @yield('content')
 
+        @yield('content')
+		
     </main>
 
 </body>

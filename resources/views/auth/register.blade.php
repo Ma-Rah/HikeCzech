@@ -1,3 +1,8 @@
+@extends('layouts.main')
+
+@section('content')
+
+
 @foreach ($errors->all() as $error)
     <div class="error">{{ $error }}</div>
 @endforeach
@@ -24,3 +29,5 @@
     <button>Register</button>
  
 </form>
+
+@endsection

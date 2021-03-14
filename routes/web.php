@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+
+// display the view auth/react when user navigates to /login with GET
+Route::view('/login', 'auth/react')->name('login');
+
+// display the view auth/react when user navigates to /register with GET
+Route::view('/register', 'auth/react')->name('register');
+
 
 
 Route::get('/entity/{entity_id}', 'EntityController@show');
@@ -23,7 +28,13 @@ Route::get('/entity/create', 'EntityController@create');
 
 // Registration form
 
-Route::get('/register', "RegisteredUserController@create");
+// Route::get('/register', "RegisteredUserController@create");
 Route::post('/register', "RegisteredUserController@store");
 
+// // Login form
+// Route::get('/login', "RegisteredUserController@login");
+
+
 Route::view('/index', 'index/index');
+
+

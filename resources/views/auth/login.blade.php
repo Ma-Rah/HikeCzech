@@ -1,19 +1,32 @@
-@auth
-            Logged in as {{ Auth::user()->name }}
+@extends('layouts.main')
 
-            <form action="{{ route('logout') }}" method="post">
-                @csrf
-                <input type="submit" value="Logout">
-            </form>
+@section('content')
 
-            @can('admin')
+<form action="/" method="" >
+			@csrf
+            <label htmlFor="">Email</label>
+            <br />
+            <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+            />
+ 
+            <br />
 
-                <strong>You are an administrator</strong>
+            <label htmlFor="">Password</label>
+            <br />
+            <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+            />
+            <br />
 
-            @endcan
+            <button>Login</button>
+        </form>
 
-        @else
 
-            <a href="{{ route('login') }}">Log in</a>
-
-        @endauth
+@endsection
