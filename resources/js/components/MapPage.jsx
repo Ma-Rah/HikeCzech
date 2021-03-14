@@ -1,12 +1,13 @@
 import React from "react";
-import map from "./img/map.PNG";
+import map from "./img/map.png";
+import { Container, Image } from "react-bootstrap";
 
 const MapPage = () => {
     return (
-        <div className="map-page">
-            <h1>[Nav goes here]</h1>
+        <Container>
+            <h1>Map Page</h1>
 
-            <img src={map} alt="Picture of map" />
+            <Image src={map} fluid />
 
             <div className="items">
                 <div className="card">Difficulty</div>
@@ -16,8 +17,11 @@ const MapPage = () => {
                 <div className="card">Ideal weather conditions</div>
                 <div className="card">Weather warnings</div>
             </div>
-        </div>
+        </Container>
     );
 };
 
 export default MapPage;
+{
+    /* <div className="map-page"></div> */
+}

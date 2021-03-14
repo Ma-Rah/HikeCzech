@@ -25,8 +25,8 @@ Route::view('/register', 'auth/react')->name('register');
 
 Route::get('/entity/{entity_id}', 'EntityController@show');
 Route::get('/entity/create', 'EntityController@create');
-Route::get('/entity/details', 'EntityController@details');
-Route::get('/entity/map', 'EntityController@map');
+// Route::get('/entity/details', 'EntityController@details');
+// Route::get('/entity/map', 'EntityController@map');
 
 // Registration form
 
