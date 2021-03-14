@@ -20,8 +20,15 @@ if (!mix.inProduction()) {
 }
 mix.sass("resources/scss/app.scss", "public/css");
 mix.js("resources/js/homepage/index.jsx", "public/js/homepage.js").react();
+
 mix.js("resources/js/navbar/Navbar.jsx", "public/js/navbar.js").react();
 mix.js("resources/js/auth/index.jsx", "public/js/auth.js").react();
+
+// mix.js(
+//     "resources/js/components/EntityDetails.jsx",
+//     "public/js/details.js"
+// ).react();
+
 mix.browserSync({
     host: "localhost",
     port: 3000,

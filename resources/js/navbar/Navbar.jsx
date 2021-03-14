@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <div className="container">
+        <div className="container bg-lights w-100 m-0">
             <div className="d-flex justify-content-between  ">
                 <a href="/">
                     <h1 className="text-dark">HikeCzech</h1>

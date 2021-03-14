@@ -27,4 +27,14 @@ class EntityController extends Controller
 		$entity->save();
 		return "saved";
 	}
+
+	public function details()
+	{
+		return view('entity/details');
+	}
+
+	public function map()
+	{
+		return view('entity/map');
+	}
 }

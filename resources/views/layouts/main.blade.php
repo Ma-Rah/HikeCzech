@@ -18,15 +18,15 @@
 </head>
 <body>
 
-    <header>
+
 		@yield('navbar')
-    </header>
+ 
 
     
     <main>
 
         @yield('content')
-		
+
     </main>
 
 </body>

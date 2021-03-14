@@ -4,7 +4,6 @@
 
 <div id="app" class="container"></div>
 
-<script src="{{ mix('js/auth.js') }}"></script>
-
+<script src="{{ mix('js/details.js') }}"></script>
 
 @endsection

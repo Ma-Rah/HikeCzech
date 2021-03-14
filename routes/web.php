@@ -25,16 +25,15 @@ Route::view('/register', 'auth/react')->name('register');
 
 Route::get('/entity/{entity_id}', 'EntityController@show');
 Route::get('/entity/create', 'EntityController@create');
+Route::get('/entity/details', 'EntityController@details');
+Route::get('/entity/map', 'EntityController@map');
 
 // Registration form
 
 // Route::get('/register', "RegisteredUserController@create");
 Route::post('/register', "RegisteredUserController@store");
 
-// // Login form
-// Route::get('/login', "RegisteredUserController@login");
 
 
-Route::view('/index', 'index/index');
 
 

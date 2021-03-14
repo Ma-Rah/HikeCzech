@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
     <Router>
-        {" "}
         <Navbar />
         <Switch>
             <Route path="/login" children={<Login />} />

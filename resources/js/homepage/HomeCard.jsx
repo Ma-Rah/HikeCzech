@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function HomeCard() {
     return (
@@ -20,7 +21,12 @@ function HomeCard() {
                     <ListGroup.Item>Rating: 5/5</ListGroup.Item>
                 </ListGroup>
             </Card.Body>
-            <Button variant="primary">Find out more</Button>
+            <Link to="/test">
+                <button type="button" class="btn btn-primary w-100">
+                    Find out more
+                </button>
+            </Link>
+            {/* <Button variant="primary">Find out more</Button> */}
         </Card>
     );
 }
