@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -10,6 +10,8 @@ import EntityDetails from "../components/EntityDetails.jsx";
 import MapPage from "../components/MapPage.jsx";
 
 function Index() {
+    useEffect(() => {}, []);
+
     return (
         <Router>
             <Navbar />

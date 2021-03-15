@@ -26,6 +26,28 @@ export default function Login(props) {
         const response_data = await response.json();
 
         if (response.status == 200) {
+            location.href = "/user";
+        } else {
+            setErrors(response_data.errors);
+        }
+    };
+
+    const handleLogout = async (event) => {
+        event.preventDefault();
+
+        const response = await fetch("/logout", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
+            },
+        });
+        const response_data = await response.json();
+
+        if (response.status == 200) {
             location.href = "/";
         } else {
             setErrors(response_data.errors);
@@ -46,6 +68,15 @@ export default function Login(props) {
 
     return (
         <div className="d-flex justify-content-center align-items-center">
+            <form
+                action="/logout"
+                method="post"
+                onSubmit={handleLogout}
+                className="w-auto pt-10"
+            >
+                <button>Logout</button>
+            </form>
+
             <form
                 action="/login"
                 method="post"

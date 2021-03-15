@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 
 export default function Register(props) {
     const [
-        { email, name, password, password_confirmation },
+        { email, username, password, password_confirmation },
         setValues,
     ] = useState({
         email: "",
-        name: "",
+        username: "",
         password: "",
         password_confirmation: "",
     });
+    const [errors, setErrors] = useState(null);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let request_data = { email, name, password, password_confirmation };
+        let request_data = { email, username, password, password_confirmation };
         const response = await fetch("/register", {
             method: "POST",
             body: JSON.stringify(request_data),
@@ -27,16 +28,17 @@ export default function Register(props) {
             },
         });
         const response_data = await response.json();
-        // redirect to homepage if registration was successful
-        if (response.status == 201) {
-            location.href = "/";
-            // location.reload(); // refresh current page
+
+        if (response.status == 200) {
+            location.href = "/login";
+        } else {
+            setErrors(response_data.errors);
         }
     };
 
     const handleChange = (event) => {
         const allowed_names = [
-                "name",
+                "username",
                 "email",
                 "password",
                 "password_confirmation",
@@ -64,7 +66,7 @@ export default function Register(props) {
                     <input
                         type="text"
                         name="username"
-                        value={name}
+                        value={username}
                         onChange={handleChange}
                         class="form-control"
                     />

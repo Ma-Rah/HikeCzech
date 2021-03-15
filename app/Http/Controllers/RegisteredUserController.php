@@ -29,7 +29,7 @@ class RegisteredUserController extends Controller
 			'password' => Hash::make($request->password),
 		]);
 
-		return 'user saved';
+		return view('auth.react');
 
    }
 

@@ -613,7 +613,7 @@ function Login(props) {
               response_data = _context.sent;
 
               if (response.status == 200) {
-                location.href = "/";
+                location.href = "/user";
               } else {
                 setErrors(response_data.errors);
               }
@@ -631,6 +631,51 @@ function Login(props) {
     };
   }();
 
+  var handleLogout = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+      var response, response_data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              event.preventDefault();
+              _context2.next = 3;
+              return fetch("/logout", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-type": "application/json",
+                  "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                }
+              });
+
+            case 3:
+              response = _context2.sent;
+              _context2.next = 6;
+              return response.json();
+
+            case 6:
+              response_data = _context2.sent;
+
+              if (response.status == 200) {
+                location.href = "/";
+              } else {
+                setErrors(response_data.errors);
+              }
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function handleLogout(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   var handleChange = function handleChange(event) {
     var allowed_names = ["email", "password"],
         name = event.target.name,
@@ -643,9 +688,17 @@ function Login(props) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "d-flex justify-content-center align-items-center",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+      action: "/logout",
+      method: "post",
+      onSubmit: handleLogout,
+      className: "w-auto pt-10",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        children: "Logout"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       action: "/login",
       method: "post",
       onSubmit: handleSubmit,
@@ -684,7 +737,7 @@ function Login(props) {
           children: error
         }, error);
       }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {})]
-    })
+    })]
   });
 }
 
@@ -735,17 +788,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Register(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     email: "",
-    name: "",
+    username: "",
     password: "",
     password_confirmation: ""
   }),
       _useState2 = _slicedToArray(_useState, 2),
       _useState2$ = _useState2[0],
       email = _useState2$.email,
-      name = _useState2$.name,
+      username = _useState2$.username,
       password = _useState2$.password,
       password_confirmation = _useState2$.password_confirmation,
       setValues = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      errors = _useState4[0],
+      setErrors = _useState4[1];
 
   var handleSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
@@ -757,7 +815,7 @@ function Register(props) {
               event.preventDefault();
               request_data = {
                 email: email,
-                name: name,
+                username: username,
                 password: password,
                 password_confirmation: password_confirmation
               };
@@ -780,9 +838,10 @@ function Register(props) {
             case 7:
               response_data = _context.sent;
 
-              // redirect to homepage if registration was successful
-              if (response.status == 201) {
-                location.href = "/"; // location.reload(); // refresh current page
+              if (response.status == 200) {
+                location.href = "/login";
+              } else {
+                setErrors(response_data.errors);
               }
 
             case 9:
@@ -799,7 +858,7 @@ function Register(props) {
   }();
 
   var handleChange = function handleChange(event) {
-    var allowed_names = ["name", "email", "password", "password_confirmation"],
+    var allowed_names = ["username", "email", "password", "password_confirmation"],
         name = event.target.name,
         value = event.target.value;
 
@@ -825,7 +884,7 @@ function Register(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
           type: "text",
           name: "username",
-          value: name,
+          value: username,
           onChange: handleChange,
           "class": "form-control"
         })]
@@ -1114,7 +1173,7 @@ function Car() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.default.Item, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-          className: "d-block w-100",
+          className: "d-block w-100 rounded",
           src: "https://picsum.photos/400/301",
           alt: "Second slide"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.default.Caption, {
@@ -1307,6 +1366,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Index() {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_navbar_Navbar_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {

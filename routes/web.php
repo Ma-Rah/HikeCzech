@@ -33,6 +33,8 @@ Route::get('/entity/create', 'EntityController@create');
 // Route::get('/register', "RegisteredUserController@create");
 Route::post('/register', "RegisteredUserController@store");
 
+Route::get('/user',"UserController@auth");
+
 
 
 
