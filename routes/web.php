@@ -13,27 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+// Route::get('/', 'IndexController@index');
 
-// display the view auth/react when user navigates to /login with GET
-Route::view('/login', 'auth/react')->name('login');
+Route::view('/{path?}', 'index/index');
 
-// display the view auth/react when user navigates to /register with GET
-Route::view('/register', 'auth/react')->name('register');
+// // display the view auth/react when user navigates to /login with GET
+// Route::view('/login', 'auth/react')->name('login');
+
+// // display the view auth/react when user navigates to /register with GET
+// Route::view('/register', 'auth/react')->name('register');
 
 
 
-Route::get('/entity/{entity_id}', 'EntityController@show');
-Route::get('/entity/create', 'EntityController@create');
+// Route::get('/entity/{entity_id}', 'EntityController@show');
+// Route::get('/entity/create', 'EntityController@create');
 // Route::get('/entity/details', 'EntityController@details');
 // Route::get('/entity/map', 'EntityController@map');
 
 // Registration form
 
 // Route::get('/register', "RegisteredUserController@create");
-Route::post('/register', "RegisteredUserController@store");
+// Route::post('/register', "RegisteredUserController@store");
 
-Route::get('/user',"UserController@auth");
+// Route::get('/user',"UserController@auth");
 
 
 
